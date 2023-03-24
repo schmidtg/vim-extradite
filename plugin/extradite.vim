@@ -196,19 +196,19 @@ endfunction
 function! s:ExtraditeJump(cmd) abort
   let rev = s:ExtraditeClose()
   if a:cmd == 'tabedit'
-      exe ':Gtabedit '.rev
+      exe ':Git tabedit '.rev
   else
       exe a:cmd
-      exe ':Gedit '.rev
+      exe ':Git edit '.rev
   endif
 endfunction
 
 function! s:ExtraditeDiff(type) abort
   let rev = s:ExtraditeClose()
   if a:type == 2
-    exe ':tabedit %|Gdiff '.rev
+    exe ':tabedit %|Git diff '.rev
   else
-    exe ':Gdiff'.(a:type ? '!' : '').' '.rev
+    exe ':Git diff'.(a:type ? '!' : '').' '.rev
   endif
 endfunction
 
